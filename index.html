@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitX Dashboard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <button class="icon-btn"><span class="material-icons-round">arrow_back</span></button>
+            <button class="icon-btn accent-btn">
+                <img src="cornerlogo.png" alt="Bar Chart" style="width:24px; height:24px;">
+            </button>
+        </header>
+
+        <!-- Chart Section -->
+        <section class="chart-section">
+            <div class="chart-card">
+                <canvas id="incomeChart"></canvas>
+            </div>
+
+            <div class="chart-info">
+                <span class="status-text">In Profit</span>
+                <h1>Monthly Income</h1>
+                <p class="amount">Rupee <span class="white-text" id="displayTotalProfit">0</span></p>
+            </div>
+        </section>
+
+        <!-- Profit Banner -->
+        <div class="profit-banner">
+            <div class="profit-content">
+                <div class="icon-box">
+                    <img src="tablelogo.png" alt="Trending Up" style="width:48px; height:30px;">
+                </div>
+
+                <span>ProfitX</span>
+            </div>
+        </div>
+
+        <div class="scroll-content">
+            <!-- Amount Menu -->
+            <section class="menu-section">
+                <div class="section-header">
+                    <h2>Amount Menu</h2>
+                    <div class="filters">
+                        <select id="monthFilter">
+                            <option value="">Select Month</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+
+                        <div class="year-filter">
+                            <select id="yearFilter">
+                                <option value="">Select Year</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                            </select>
+
+                            <button class="filter-btn" onclick="applyFilter()">
+                                <span class="material-icons-round">filter_alt</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="cards-wrapper">
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="display-box">
+                                <div class="card-image">
+                                    <img src="cash.png" alt="GPay">
+                                </div>
+                            </div>
+                            <div class="title">Cash</div>
+                            <div class="amount" id="displayCash">₹0.00</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="display-box">
+                                <div class="card-image">
+                                    <img src="gpay.png" alt="PhonePe">
+                                </div>
+                            </div>
+                            <div class="title">GPay</div>
+                            <div class="amount" id="displayGPay">₹0.00</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="display-box">
+                                <div class="card-image">
+                                    <img src="total.png" alt="Paytm">
+                                </div>
+                            </div>
+                            <div class="title">Total</div>
+                            <div class="amount" id="displayTotal">₹0.00</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="display-box">
+                                <div class="card-image">
+                                    <img src="invest.png" alt="Amazon Pay">
+                                </div>
+                            </div>
+                            <div class="title">Investment</div>
+                            <div class="amount" id="displayTotalInvest">₹0.00</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Today Section -->
+            <section class="today-section">
+                <h2>Today</h2>
+                <div class="today-cardd">
+                    <div class="today-card">
+                         <div class="tdisplay-box">
+                                <div class="tcard-image">
+                                    <img src="today.png" alt="Amazon Pay">
+                                </div>
+                            </div>
+                        <div class="item-details">
+                            <p class="meta">Time: <span id="displayTime">--:--</span> | Date: <span
+                                    id="displayDate">--/--/----</span></p>
+                            <div class="stats-row">
+                                <p>Profit <span class="green" id="displayTodayProfit">₹0.00</span></p>
+                            </div>
+                            <div class="stats-row">
+                                <p>Investment <span class="yellow" id="displayTodayInvest">₹0.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="bottom-action-container">
+            <div class="fab-container">
+                <button class="fab-main" onclick="window.location.href='entery.html'">
+                    Enter The Data
+                    <span class="material-icons-round">touch_app</span>
+                </button>
+            </div>
+        </div>
+
+        <script src="script.js" defer></script>
+</body>
+
+</html>

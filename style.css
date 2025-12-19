@@ -1,0 +1,316 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #1e2126;
+    /* Fallback */
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    width: 100%;
+    max-width: 480px;
+    /* Mobile width cap */
+    background: linear-gradient(150deg, #36495c 0%, #0C1114 80%);
+    /* Subtle gradient at top */
+    position: relative;
+    padding: 20px;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.accent-btn {
+    color: #84cc16;
+    /* Lime Green */
+}
+
+/* Material Icons size fix */
+.material-icons-round {
+    font-size: 24px;
+}
+
+/* Form Card */
+.form-container {
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.form-card {
+    background: #546e7a;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #84cc16;
+    box-shadow: 0 0 15px rgba(132, 204, 22, 0.3);
+}
+
+.form-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("tablelogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;   /* 🔽 reduce size here */
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.form-card * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.form-title {
+    color: #84cc16;
+    /* Yellow-Green */
+    font-size: 16px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.input-group label {
+    display: block;
+    color: #e2e8f0;
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.custom-input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 8px;
+    color: white;
+    outline: none;
+}
+
+.custom-input:focus {
+    border-color: #84cc16;
+}
+
+/* Local Upload Button */
+.upload-btn-container {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.upload-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #65a30d, #84cc16);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: #352B2A;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.upload-btn:active {
+    transform: scale(0.98);
+}
+
+/* History Section */
+.history-section {
+    margin-bottom: 100px;
+   
+    
+}
+
+.history-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.history-table-container {
+    background: #64748b;
+    /* Slate grey background for table container */
+    border-radius: 12px;
+    overflow: hidden;
+    color: white;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+}
+
+.history-table thead {
+    background: white;
+    color: #000;
+    font-weight: 700;
+}
+
+.history-table th {
+    padding: 12px 5px;
+    font-size: 12px;
+}
+
+.history-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.history-table td {
+    padding: 12px 5px;
+}
+
+.history-table td.profit-positive {
+    color: #84cc16;
+    /* Green */
+    font-weight: 600;
+}
+
+.history-table td.profit-negative {
+    color: #ef4444;
+    /* Red */
+    font-weight: 600;
+}
+
+/* Footer Totals */
+tfoot tr {
+    background-color: #e2e8f0;
+    color: #0f2a13ff;
+    font-weight: 700;
+}
+
+tfoot td {
+    padding: 12px 5px;
+}
+
+/* API Action Buttons */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    color: #ef4444;
+    /* Red */
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #b91c1c;
+}
+
+/* FAB */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.fab-main {
+    background: #84cc16;
+    color: #0f172a;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(132, 204, 22, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.fab-main:active {
+    transform: scale(0.95);
+}
+.btn-icon-img {
+    width: 22px;      /* control size */
+    height: 22px;
+    object-fit: contain;
+}
+/* Style for all delete buttons */
+td button {
+    background: none;           /* remove button background */
+    border: none;               /* remove button border */
+    cursor: pointer;            /* pointer on hover */
+    padding: 6px;               /* optional padding */
+    border-radius: 4px;         /* rounded corners */
+    transition: 0.3s;           /* smooth hover effect */
+}
+
+/* Style for the icon inside the button */
+td button .material-icons-round {
+    color: #04031d;             /* red icon color */
+    font-size: 20px;            /* icon size */
+    transition: 0.3s;
+}
+
+/* Hover effect */
+td button:hover .material-icons-round {
+    color: #ff0400;             /* lighter red on hover */
+}
